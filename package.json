@@ -1,0 +1,27 @@
+{
+  "name": "skk-vnode",
+  "version": "1.0.0",
+  "description": "learn vnode",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "rollup": "^0.66.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "node rollup.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/softkaikai/skk-vnode.git"
+  },
+  "keywords": [
+    "vnode"
+  ],
+  "author": "softkaikai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/softkaikai/skk-vnode/issues"
+  },
+  "homepage": "https://github.com/softkaikai/skk-vnode#readme"
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box"></div>
+
+<script src="../dist/skk-vnode.js"></script>
+<script>
+    let container = document.getElementById('box');
+
+    let c = skkVnode.createVnode;
+    let patch = skkVnode.init();
+
+    function demo(a, b, e) {
+        console.log('this is click');
+        console.log(a);
+        console.log(b);
+        console.log(e);
+    }
+
+    let vnode = c('div.box', {style: {color: 'red'}},
+        [
+            c('p.kid1', {style: {color: 'orange'}}, 'kid1'),
+            c('p.kid2', {style: {color: 'green'},
+                hook: {
+                    create: function(vnode) {
+                        console.log('this is create hook');
+                        console.log(vnode);
+                        }
+                },
+                on: {
+                    click: [demo, '1', '2']
+                }
+            }, 'click me'),
+            c('div.kid3', {style: {color: 'purple'}},
+                [
+                    c('span.kidkid1', {style: {color: 'red'}}, 'kidkid1'),
+                    c(void 0, void 0, '123')
+                ]
+            ),
+        ]
+    )
+    patch(container, vnode);
+    let vnodeNew = c('div.box', {style: {color: 'orange'}},
+        [
+            c('input', {on: {change: function(e) {
+                console.log(e);
+                    }}}, void 0),
+        ]
+    )
+    patch(vnode, vnodeNew);
+</script>
+</body>
+</html>
