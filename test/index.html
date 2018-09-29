@@ -23,7 +23,13 @@
 
     let vnode = c('div.box', {style: {color: 'red'}},
         [
-            c('p.kid1', {style: {color: 'orange'}}, 'kid1'),
+            c('p.kid1', {style: {color: 'orange'},
+                hook: {
+                    create: function() {
+                        console.log('this is kid1');
+                    }
+                }
+            }, 'kid1'),
             c('p.kid2', {style: {color: 'green'},
                 hook: {
                     create: function(vnode) {
@@ -46,6 +52,13 @@
     patch(container, vnode);
     let vnodeNew = c('div.box', {style: {color: 'orange'}},
         [
+            c('p.kid1', {style: {color: 'orange'},
+                hook: {
+                    create: function() {
+                        console.log('this is kid2');
+                    }
+                }
+            }, 'kid1'),
             c('input', {on: {change: function(e) {
                 console.log(e);
                     }}}, void 0),

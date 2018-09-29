@@ -19,11 +19,16 @@ function replaceChild(elm, old, child) {
     elm.replaceChild(child, old)
 }
 
+function insertBefore(elm, child, old) {
+    elm.insertBefore(child, old);
+}
+
 export default {
     setAttr,
     getParent,
     appendChild,
     removeChild,
     replaceChild,
+    insertBefore,
 }
 
