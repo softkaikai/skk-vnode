@@ -12,7 +12,22 @@
     let container = document.getElementById('box');
 
     let c = skkVnode.createVnode;
+    let generate = skkVnode.generate;
     let patch = skkVnode.init();
+
+    let ast = {
+        tag: 'div',
+        data: {style: {color: 'red'}},
+        children: [
+            {tag: 'p', data: {style: {color: 'green'}}, children: '123'},
+            {tag: 'p', data: {style: {color: 'orange'}}, children: '456'},
+            {children: 789}
+        ]
+    };
+    let render = generate(ast);
+    console.log(render);
+    let renderVnode = render();
+    console.log(renderVnode);
 
     function demo(a, b, e) {
         console.log('this is click');
@@ -49,7 +64,7 @@
             ),
         ]
     )
-    patch(container, vnode);
+    patch(container, renderVnode);
     let vnodeNew = c('div.box', {style: {color: 'orange'}},
         [
             c('p.kid1', {style: {color: 'orange'},
@@ -64,7 +79,7 @@
                     }}}, void 0),
         ]
     )
-    patch(vnode, vnodeNew);
+    // patch(vnode, vnodeNew);
 </script>
 </body>
 </html>

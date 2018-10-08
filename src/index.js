@@ -1,4 +1,5 @@
 import { createVnode } from './vnode';
+import { generate } from './generate/generate';
 import modules from './module/index';
 import { isDef, isUnDef, isPrimitive, isVnode, getIdClass } from './tool/tool';
 import api from './tool/api';
@@ -235,5 +236,6 @@ function init() {
 
 export default {
     createVnode,
+    generate,
     init,
 }
